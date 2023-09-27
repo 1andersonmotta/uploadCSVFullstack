@@ -1,75 +1,60 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import {
     BsGraphUp,
     BsWallet2,
     BsHourglassSplit,
     BsFillFileEarmarkTextFill
 } from 'react-icons/bs'
-import MovieCard from "../components/MovieCard";
-import './Movie.css'
+import { useLocation } from 'react-router-dom';
 
-const moviesURL = import.meta.env.VITE_API
-const apiKey = import.meta.env.VITE_API_KEY
+const Movie = ({ user }) => {
+    const location = useLocation();
+    const objectData = location.state && location.state.objectData;
+    // const [user, setUser] = useState(null);
 
-const Movie = () => {
-    const { id } = useParams()
-    const [movie, setMovie] = useState(null)
-
-    const getMovie = async (url) => {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        setMovie(data)
+    // useEffect(() => {
+    //     if (objectData) {
+    //         setUser(objectData);
+    //     }
+    // }, [objectData]);
+    function loader() {
+        console.log('user', user)
+        console.log('objectData', objectData)
     }
 
-    const formatCurrency = (number) => {
-        return number.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-        })
-    }
-
-    useEffect(() => {
-        const movieUrl = `${moviesURL}${id}?${apiKey}`
-        getMovie(movieUrl)
-    }, [])
+    console.log('movie data users', user);
 
     return (
         <div className="movie-page">
-            {movie && (
-                <>
-                    <MovieCard movie={movie} showLink={false} />
-                    <p className="tagline">{movie.tahline}</p>
-                    <div className="info">
-                        <h3>
-                            <BsWallet2 /> Orçamento:
-                        </h3>
-                        <p>{formatCurrency(movie.budget)}</p>
-                    </div>
-                    <div className="info">
-                        <h3>
-                            <BsGraphUp /> Receita:
-                        </h3>
-                        <p>{formatCurrency(movie.revenue)}</p>
-                    </div>
-                    <div className="info">
-                        <h3>
-                            <BsHourglassSplit /> Duração:
-                        </h3>
-                        <p>{movie.runtime} minutos</p>
-                    </div>
-                    <div className="info description">
-                        <h3>
-                            <BsFillFileEarmarkTextFill /> Descrição:
-                        </h3>
-                        <p>{movie.overview}</p>
-                    </div>
-                </>
-            )}
+
+            <p className="tagline">nome:{user.name}</p>
+            <div className="info">
+                <h3>
+                    <BsWallet2 /> Orçamento:
+                </h3>
+                <p>city</p>
+            </div>
+            <div className="info">
+                <h3>
+                    <BsGraphUp /> Receita:
+                </h3>
+                <p>country</p>
+            </div>
+            <div className="info">
+                <h3>
+                    <BsHourglassSplit /> Duração:
+                </h3>
+                <p>sporte</p>
+            </div>
+            <div className="info description">
+                <h3>
+                    <BsFillFileEarmarkTextFill /> Descrição:
+                </h3>
+                <p></p>
+                <button onClick={loader}>clicke</button>
+            </div>
         </div>
     )
 }
 
 export default Movie;
-
