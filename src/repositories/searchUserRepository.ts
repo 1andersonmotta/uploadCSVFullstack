@@ -8,6 +8,7 @@ export default class SearchUserRepository {
         const users = await client.cSVData.findMany({
             where: {
                 OR: [
+                    { id: { contains: sanitizedValue } },
                     { name: { contains: sanitizedValue } },
                     { city: { contains: sanitizedValue } },
                     { country: { contains: sanitizedValue } },
