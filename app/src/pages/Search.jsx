@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import UserCard from "../components/UserCard";
-import './MoviesGrid.css';
+import './UserGrid.css';
+import ErrorPage from "./ErrorPage";
 
 const searchURL = import.meta.env.VITE_SEARCH
 
@@ -29,11 +30,11 @@ const Search = () => {
     return (
         <div className="container">
             <h2 className="title">
-                Resultados para: <span className="query-text">{query}</span>
+                Results for: <span className="query-text">{query}</span>
             </h2>
-            <div className="movies-container">
-                {users.length === 0 && <p>Carregando...</p>}
-                {users.length > 0 && users.map((user) => <UserCard key={user.id} user={user} />)}
+            <div className="user-container">
+                {users.length === 0 && <p>Loading...</p>}
+                {users.length > 0 ? users.map((user) => <UserCard key={user.id} user={user} />) : <ErrorPage />}
             </div>
         </div>
     )
