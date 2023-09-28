@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { BiCameraMovie, BiSearchAlt2 } from 'react-icons/bi'
+import { BiSearchAlt2 } from 'react-icons/bi'
+import { MdUploadFile } from 'react-icons/md'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -9,7 +10,7 @@ const Navbar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(search)
+        // console.log(search)
         if (!search) return;
 
         navigate(`/search?q=${search}`);
@@ -19,7 +20,7 @@ const Navbar = () => {
     return (
         <nav id='navbar'>
             <h2>
-                <Link to='/'><BiCameraMovie /> MovieLib</Link>
+                <Link to='/'><MdUploadFile />Upload CSV </Link>
             </h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Pesquise.."
