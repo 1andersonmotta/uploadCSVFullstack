@@ -11,10 +11,8 @@ const Details = () => {
     const query = searchParams.get("id")
 
     const getSearchedUsers = async (url) => {
-        console.log('url', url)
         const res = await fetch(url);
         const data = await res.json();
-        console.log('data', data)
         setUsers(data)
     }
     useEffect(() => {
