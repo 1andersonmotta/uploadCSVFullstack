@@ -9,16 +9,15 @@ const UserCard = ({ user, showLink = true }) => {
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        console.log(id)
         if (!id) return;
 
         navigate(`/user?id=${id}`);
     }
     return (
         <div className="user-card">
-            <h2 style={{ fontSize: "1rem" }}>Nome: {name}</h2>
-            <h2 style={{ fontSize: "1rem" }}>País: {country}</h2>
-            <h2 style={{ fontSize: "1rem" }}>Cidade: {city}</h2>
+            <h2 >Nome: {name}</h2>
+            <h2 >País: {country}</h2>
+            <h2 >Cidade: {city}</h2>
             <p>
                 Esporte Favorito: {favorite_sport}
             </p>
