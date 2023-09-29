@@ -13,10 +13,8 @@ const Search = () => {
     const query = searchParams.get("q")
 
     const getSearchedUsers = async (url) => {
-        console.log('url', url)
         const res = await fetch(url);
         const data = await res.json();
-        console.log('data', data)
         setUsers(data)
     }
 
