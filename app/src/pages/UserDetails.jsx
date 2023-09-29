@@ -9,22 +9,22 @@ const UserDetails = ({ user }) => {
         <div className="user-page">
             <div className="info">
                 <h3>
-                    <BsFillPersonFill /> Name: {user.name}
+                    <BsFillPersonFill /> Nome: {user.name}
                 </h3>
             </div>
             <div className="info">
                 <h3>
-                    <BiWorld /> Country: {user.country}
+                    <BiWorld /> País: {user.country}
                 </h3>
             </div>
             <div className="info">
                 <h3>
-                    <FaCity /> City: {user.city}
+                    <FaCity /> Cidade: {user.city}
                 </h3>
             </div>
             <div className="info">
                 <h3>
-                    <BiMedal /> Favorite Sport: {user.favorite_sport}
+                    <BiMedal /> Esporte Favorito: {user.favorite_sport}
                 </h3>
                 <p></p>
             </div>
