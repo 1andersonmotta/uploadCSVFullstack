@@ -22,7 +22,6 @@ const Search = () => {
 
     useEffect(() => {
         const searchWithQueryURL = `${searchURL}=${query}`;
-        console.log('query', searchWithQueryURL)
 
         getSearchedUsers(searchWithQueryURL)
     }, [query])
@@ -30,10 +29,10 @@ const Search = () => {
     return (
         <div className="container">
             <h2 className="title">
-                Results for: <span className="query-text">{query}</span>
+                Resultados para : <span className="query-text">{query}</span>
             </h2>
             <div className="user-container">
-                {users.length === 0 && <p>Loading...</p>}
+                {users.length === 0 && <p>Carregando...</p>}
                 {users.length > 0 ? users.map((user) => <UserCard key={user.id} user={user} />) : <ErrorPage />}
             </div>
         </div>
