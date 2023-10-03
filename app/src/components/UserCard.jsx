@@ -2,7 +2,6 @@
 import { useNavigate } from 'react-router-dom';
 import '../pages/UserDetails.css'
 
-
 const UserCard = ({ user, showLink = true }) => {
     const { id, name, city, country, favorite_sport } = user
 
