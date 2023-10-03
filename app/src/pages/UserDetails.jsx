@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { BsFillPersonFill } from 'react-icons/bs'
 import { FaCity } from 'react-icons/fa'
 import { BiWorld, BiMedal } from 'react-icons/bi'
-
 import './UserDetails.css'
 
 const UserDetails = ({ user }) => {
